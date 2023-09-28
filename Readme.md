@@ -1,3 +1,7 @@
+**Storing Images to MySQL DATABASE**
+
+**BLOB**: Binary Large Object(changining images to blob then save to database)
+
 **Check available databases**
 
 ```sql
