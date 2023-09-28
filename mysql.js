@@ -53,8 +53,6 @@ function selectData() {
     connection.query('SELECT * FROM image_data', function (err, rows, fields) {
         if (err) throw err;
         console.log('The solution is: ', rows);
-
-        // Perform the final operation (e.g., drop table)
         dropTable();
     });
 }
@@ -63,8 +61,6 @@ function dropTable() {
     connection.query('DROP TABLE image_data', function (err, result) {
         if (err) throw err;
         console.log('Table dropped');
-
-        // Close the connection after all operations are done
         connection.end(function (err) {
             if (err) {
                 console.error('Error closing MySQL connection: ' + err.stack);

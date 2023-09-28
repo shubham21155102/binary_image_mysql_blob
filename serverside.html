@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL in Browser</title>
+</head>
+<body>
+  <button id="getDataButton">Get Data</button>
+  <div id="dataContainer"></div>
+
+  <script>
+    document.getElementById('getDataButton').addEventListener('click', () => {
+      fetch('/get-data') // Send a GET request to your server-side API
+        .then(response => response.json())
+        .then(data => {
+          // Handle and display the data in your web application
+          const dataContainer = document.getElementById('dataContainer');
+          dataContainer.textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    });
+  </script>
+</body>
+</html>

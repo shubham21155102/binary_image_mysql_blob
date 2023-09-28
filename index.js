@@ -1,19 +1,21 @@
 // alert("hii")
-const mysql = require('mysql2');
+// import mysql from 'mysql2';
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'test_image'
 });
+
 connection.connect(function (err) {
     if (err) {
         console.error('Error connecting to MySQL: ' + err.stack);
         return;
     }
     console.log('Connected to MySQL as id ' + connection.threadId);
-
 });
+
 connection.query(
     "CREATE TABLE IF NOT EXISTS image_data (id INT AUTO_INCREMENT PRIMARY KEY, image_name VARCHAR(255), image MEDIUMBLOB)",
     function (err, result) {
